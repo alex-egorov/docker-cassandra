@@ -2,19 +2,19 @@ FROM alpine:3.5
 
 ARG BUILD_DATE
 ARG VCS_REF
-ARG VERSION
+
 
 LABEL \
     org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.docker.dockerfile="/Dockerfile" \
     org.label-schema.license="Apache License 2.0" \
-    org.label-schema.name="smizy/cassandra" \
-    org.label-schema.url="https://github.com/smizy" \
+    org.label-schema.name="alex202/cassandra" \
+    org.label-schema.url="https://github.com/alex-egorov" \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.vcs-type="Git" \
-    org.label-schema.vcs-url="https://github.com/smizy/docker-cassandra"
+    org.label-schema.vcs-url="https://github.com/alex-egorov/docker-cassandra"
 
-ENV CASSANDRA_VERSION    $VERSION
+ENV CASSANDRA_VERSION    3.11.1
 ENV CASSANDRA_HOME       /usr/local/apache-cassandra-${CASSANDRA_VERSION}
 ENV CASSANDRA_CONF       ${CASSANDRA_HOME}/conf
 ENV CASSANDRA_DATA       ${CASSANDRA_HOME}/data
