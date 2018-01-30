@@ -33,7 +33,7 @@ docker_push:
 docker_test:
 	docker run --name cassandra --hostname cassandra -e MAX_HEAP_SIZE=2048M -e HEAP_NEWSIZE=800M -d  $(DOCKER_IMAGE):$(DOCKER_TAG)
 	@sleep 30
-	docker exec -it cassandra cqlsh -e 'SELECT release_version FROM system.local' cassandra | grep $(DOCKER_TAG)
+	docker exec -it cassandra cqlsh -e 'SELECT release_version FROM system.local' cassandra
 	docker rm -f cassandra
 	#docker run $(DOCKER_IMAGE):$(DOCKER_TAG) bash -c 'for i in $$(seq 200); do nc -z cassandra.vnet 9042 && echo "test starting" && break; echo -n .; sleep 1; [ $$i -ge 300 ] && echo timeout && exit 124; done'
 
