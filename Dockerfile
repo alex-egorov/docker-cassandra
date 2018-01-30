@@ -14,7 +14,7 @@ LABEL \
     org.label-schema.vcs-type="Git" \
     org.label-schema.vcs-url="https://github.com/alex-egorov/docker-cassandra"
 
-ENV CASSANDRA_VERSION    3.11.1
+ENV CASSANDRA_VERSION    2.2.11
 ENV CASSANDRA_HOME       /usr/local/apache-cassandra-${CASSANDRA_VERSION}
 ENV CASSANDRA_CONF       ${CASSANDRA_HOME}/conf
 ENV CASSANDRA_DATA       ${CASSANDRA_HOME}/data
