@@ -1,44 +1,71 @@
 version: "3"
 
 services:
-  cassandra-1:
-    container_name: cassandra-1
+  cassandra01:
+    container_name: cassandra01
     networks:
       - dbnet
-    hostname: cassandra-1
-    image: alex202/cassandra:3.11
+    hostname: cassandra01
+    image: alex202/cassandra:3.11.1
     environment:
       - CASSANDRA_START_RPC=true
-      - CASSANDRA_SEEDS=cassandra-1
-      - CASSANDRA_LISTEN_ADDRESS=cassandra-1
+      - CASSANDRA_SEEDS=cassandra01
+      - CASSANDRA_LISTEN_ADDRESS=cassandra01
       - MAX_HEAP_SIZE=1024M
       - HEAP_NEWSIZE=200M
 
-  cassandra-2:
-    container_name: cassandra-2
+  cassandra02:
+    container_name: cassandra02
     networks:
       - dbnet
-    hostname: cassandra-2
-    image: alex202/cassandra:3.11
+    hostname: cassandra02
+    image: alex202/cassandra:3.11.1
     environment:
+      - PAUSE=30
       - CASSANDRA_START_RPC=true
-      - CASSANDRA_SEEDS=cassandra-1
+      - CASSANDRA_SEEDS=cassandra01
       - MAX_HEAP_SIZE=1024M
       - HEAP_NEWSIZE=200M
 
-  cassandra-3:
-    container_name: cassandra-3
+  cassandra03:
+    container_name: cassandra03
     networks:
       - dbnet
-    hostname: cassandra-3
-    image: alex202/cassandra:3.11
+    hostname: cassandra03
+    image: alex202/cassandra:3.11.1
     environment:
+      - PAUSE=60
       - CASSANDRA_START_RPC=true
-      - CASSANDRA_SEEDS=cassandra-1
+      - CASSANDRA_SEEDS=cassandra01
       - MAX_HEAP_SIZE=1024M
       - HEAP_NEWSIZE=200M 
 
+  cassandra04:
+    container_name: cassandra04
+    networks:
+      - dbnet
+    hostname: cassandra04
+    image: alex202/cassandra:3.11.1
+    environment:
+      - PAUSE=120
+      - CASSANDRA_START_RPC=true
+      - CASSANDRA_SEEDS=cassandra01
+      - MAX_HEAP_SIZE=1024M
+      - HEAP_NEWSIZE=200M
+
+  cassandra05:
+    container_name: cassandra05
+    networks:
+      - dbnet
+    hostname: cassandra05
+    image: alex202/cassandra:3.11.1
+    environment:
+      - PAUSE=180
+      - CASSANDRA_START_RPC=true
+      - CASSANDRA_SEEDS=cassandra01
+      - MAX_HEAP_SIZE=1024M
+      - HEAP_NEWSIZE=200M
+
+
 networks:
-  vnet:
-    external:
-      name: dbnet
+  dbnet:

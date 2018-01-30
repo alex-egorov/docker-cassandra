@@ -6,6 +6,12 @@ if [ "${1:0:1}" = '-' ]; then
 	set -- cassandra -f "$@"
 fi
 
+echo $PAUSE
+if [ "$PAUSE" -gt "0" ]; then
+    echo === Waiting $PAUSE sec ... ... ...
+    sleep $PAUSE
+fi
+
 if [ "$1" = 'cassandra' ]; then
 	mkdir -p "${CASSANDRA_DATA}" "${CASSANDRA_LOGS}"
 	chmod 700 "${CASSANDRA_DATA}" "${CASSANDRA_LOGS}"
